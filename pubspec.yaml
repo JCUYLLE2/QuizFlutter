@@ -1,4 +1,6 @@
 name: flutter_quizz
+flutter:
+  uses-material-design: true
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -17,5 +19,3 @@ dev_dependencies:
 
 assets:
     - assets/images/
-
-

@@ -1,46 +1,47 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
 const double margin = 10.0;
 const double buttonWidth = 160.0; // You can adjust the value as needed
 
-StreamController<bool> restart = new StreamController<bool>();
+StreamController<bool> restart = StreamController<bool>();
 
 List<dynamic> questions = [
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/image99.jpg",
+    "question": "Uit welke reeks komt deze bende?",
+    "image": "images/image99.jpg",
     "answers": ["CSI Miami", "Familie", "Brooklynn 99", "Grey's Anatomy"],
-    "correct": 2
+    "correct": 2,
+    "imageWidth": 200.0, // Adjust the width of the image
+    "imageHeight": 200.0, // Adjust the height of the image
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/imagepf.jpg",
+    "question": "Uit welke film komt deze foto?",
+    "image": "images/imagepf.jpg",
     "answers": ["Amelie Poulin", "Thuis", "Jacky Brown", "Pulp Fiction"],
     "correct": 3
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/imageshp.jpg",
+    "question": "Uit welke film of komt deze gif?",
+    "image": "images/gifhp.gif",
     "answers": [
       "Home Alone",
-      "Harry Potter en de steen der wijzen",
+      "    Harry Potter &    de steen der wijzen",
       "Home Alone 2",
       "Aladin"
     ],
     "correct": 1
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/imagestp.jpg",
+    "question": "Uit welke film komt deze foto?",
+    "image": "images/imagestp.jpg",
     "answers": ["The Lion King", "Mulan", "Star Wars", "De kleine zeemeermin"],
     "correct": 0
   },
   {
     "question": "Uit welke serie kennen we dit personage?",
-    "image": "assets/images/gifst2.gif",
+    "image": "images/gifst2.gif",
     "answers": [
-      "E.T. the Extra-Terrestrial",
+      "E.T.",
       "Close Encounters of the Third Kind",
       "The Goonies",
       "Stranger Things"
@@ -48,8 +49,8 @@ List<dynamic> questions = [
     "correct": 3
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/gifgot.gif",
+    "question": "Uit welke reeks komt deze foto?",
+    "image": "images/gifgot.gif",
     "answers": [
       "The Lord of the Rings",
       "Game of Thrones",
@@ -59,8 +60,8 @@ List<dynamic> questions = [
     "correct": 1
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/imagewd.jpg",
+    "question": "Uit welke reeks komt deze foto?",
+    "image": "images/imagewd.jpg",
     "answers": [
       "Fear the Walking Dead",
       "The Walking Dead",
@@ -70,8 +71,8 @@ List<dynamic> questions = [
     "correct": 1
   },
   {
-    "question": "Uit welke film of reeks komt deze foto?",
-    "image": "assets/images/imagebf.jpg",
+    "question": "Uit welke film komt deze foto?",
+    "image": "images/giftm.gif",
     "answers": [
       "Back to the Future",
       "Interstellar",
@@ -81,8 +82,8 @@ List<dynamic> questions = [
     "correct": 3
   },
   {
-    "question": "Uit welke film of reeks komt dit fragment?",
-    "image": "assets/images/imagelotr.jpg",
+    "question": "Uit welke film komt deze knapperd?",
+    "image": "images/imagelotr.jpg",
     "answers": [
       "Jurassic Park",
       "Indiana Jones",
@@ -91,4 +92,10 @@ List<dynamic> questions = [
     ],
     "correct": 2
   },
+  {
+    "question": "Van welke motorbende is deze man lid?",
+    "image": "images/soa.gif",
+    "answers": ["Outlaws", "Sons of Anarchy", "Saturdara", "Hell's Angels"],
+    "correct": 1
+  }
 ];

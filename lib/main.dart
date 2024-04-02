@@ -56,7 +56,7 @@ class QuizApp extends StatelessWidget {
           children: [
             Welcome(),
             Quiz(),
-            const Info(),
+            Info(),
           ],
         ),
       ),

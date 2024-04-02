@@ -96,7 +96,7 @@ class Question extends StatelessWidget {
         Container(
           margin: const EdgeInsets.symmetric(vertical: Settings.margin),
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.25,
+          height: MediaQuery.of(context).size.height * 0.4,
           child: Image.asset(
             Settings.questions[questionNumber]
                 ["image"], // Pad naar de afbeelding

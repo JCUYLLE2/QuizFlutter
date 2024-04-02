@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quizz/settings.dart';
 
 class Welcome extends StatelessWidget {
   @override

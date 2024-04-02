@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quizz/Parts/question.dart';
 import 'package:flutter_quizz/Parts/result.dart';
-import 'package:flutter_quizz/settings.dart' as Settings;
+import 'package:flutter_quizz/settings.dart' as settings;
 
 class Quiz extends StatefulWidget {
+  const Quiz({super.key});
+
   @override
   State<Quiz> createState() => _MyQuizState();
 }
@@ -48,7 +50,7 @@ class _MyQuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
 
   @override
   void initState() {
-    Settings.restart.stream.listen((event) {
+    settings.restart.stream.listen((event) {
       setState(() {
         questionNumber = 0;
         score = 0;

@@ -1,4 +1,3 @@
-import '../settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quizz/settings.dart' as Settings;
 
