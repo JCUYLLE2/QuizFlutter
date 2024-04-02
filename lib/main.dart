@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quizz/nameinput.dart';
 import 'package:flutter_quizz/quiz.dart';
 import 'package:flutter_quizz/welcome.dart';
 import 'info.dart';
@@ -8,9 +9,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +25,18 @@ class MyApp extends StatelessWidget {
 }
 
 class QuizApp extends StatelessWidget {
-  const QuizApp({super.key});
+  const QuizApp({Key? key}) : super(key: key);
+
+  void _startQuiz(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => Quiz(
+                onStartQuiz: () {},
+              )),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -55,7 +66,13 @@ class QuizApp extends StatelessWidget {
         body: TabBarView(
           children: [
             Welcome(),
-            Quiz(),
+            NameInput(
+              onNameEntered: (name) {
+                // Handle what to do when the name is entered
+                // For example, you can navigate to the Quiz screen here
+                _startQuiz(context);
+              },
+            ),
             Info(),
           ],
         ),
