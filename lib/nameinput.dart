@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class NameInput extends StatefulWidget {
   final Function(String) onNameEntered;
 
-  const NameInput({super.key, required this.onNameEntered});
+  const NameInput({Key? key, required this.onNameEntered}) : super(key: key);
 
   @override
   _NameInputState createState() => _NameInputState();
@@ -15,10 +15,26 @@ class _NameInputState extends State<NameInput> {
   Future<void> _saveNameAndNavigate(BuildContext context) async {
     final String name = _nameController.text;
 
-    // Voeg een print-verklaring toe om te controleren of de functie wordt aangeroepen
-    print('Name saved: $name');
-
-    widget.onNameEntered(name); // Naam doorgeven aan ouderwidget
+    if (name.isNotEmpty) {
+      widget.onNameEntered(name); // Name passed to parent widget
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Fout"),
+          content:
+              const Text("Voer alstublieft uw naam in voordat u doorgaat."),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override

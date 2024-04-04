@@ -19,24 +19,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const QuizApp(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const QuizApp(),
+        '/quiz': (context) => Quiz(
+              onStartQuiz: () {},
+            ),
+        '/info': (context) => const Info(),
+      },
     );
   }
 }
 
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
-
-  void _startQuiz(BuildContext context, String name) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Quiz(
-          onStartQuiz: () {},
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +65,7 @@ class QuizApp extends StatelessWidget {
             const Welcome(),
             NameInput(
               onNameEntered: (name) {
-                // Handle what to do when the name is entered
-                // For example, you can navigate to the Quiz screen here
-                _startQuiz(context,
-                    name); // Start the quiz only after the name is entered
+                _startQuiz(context, name);
               },
             ),
             const Info(),
@@ -80,5 +73,36 @@ class QuizApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _startQuiz(BuildContext context, String name) {
+    if (name.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Quiz(
+            onStartQuiz:
+                () {}, // Dit is waar je onStartQuiz zou moeten doorgeven, afhankelijk van je implementatie
+          ),
+        ),
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Fout"),
+          content:
+              const Text("Voer alstublieft uw naam in voordat u doorgaat."),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+    }
   }
 }
