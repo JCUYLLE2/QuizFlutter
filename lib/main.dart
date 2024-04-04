@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +19,22 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: QuizApp(),
+      home: const QuizApp(),
     );
   }
 }
 
 class QuizApp extends StatelessWidget {
-  const QuizApp({Key? key}) : super(key: key);
+  const QuizApp({super.key});
 
-  void _startQuiz(BuildContext context) {
+  void _startQuiz(BuildContext context, String name) {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => Quiz(
-                onStartQuiz: () {},
-              )),
+        builder: (context) => Quiz(
+          onStartQuiz: () {},
+        ),
+      ),
     );
   }
 
@@ -43,7 +44,7 @@ class QuizApp extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Kwistet!"),
+          title: const Text("Kwistet!"),
         ),
         bottomNavigationBar: TabBar(
           indicatorColor: Theme.of(context).colorScheme.primary,
@@ -65,15 +66,16 @@ class QuizApp extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Welcome(),
+            const Welcome(),
             NameInput(
               onNameEntered: (name) {
                 // Handle what to do when the name is entered
                 // For example, you can navigate to the Quiz screen here
-                _startQuiz(context);
+                _startQuiz(context,
+                    name); // Start the quiz only after the name is entered
               },
             ),
-            Info(),
+            const Info(),
           ],
         ),
       ),

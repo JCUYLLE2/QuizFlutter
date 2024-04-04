@@ -4,14 +4,14 @@ import 'package:flutter_quizz/settings.dart' as Settings;
 class Result extends StatelessWidget {
   final int score; // Attribuut voor het opslaan van de score
 
-  Result(this.score); // Constructor om de score op te vangen
+  const Result(this.score, {super.key}); // Constructor om de score op te vangen
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return ListView(
       children: <Widget>[
-        Container(
+        SizedBox(
           height: 60,
           child: Center(
             child: Text(

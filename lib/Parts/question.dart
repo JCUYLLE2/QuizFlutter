@@ -9,12 +9,12 @@ class Question extends StatelessWidget {
   final Function processAnswer; // De functie om het antwoord te verwerken
 
   const Question({
-    Key? key,
+    super.key,
     required this.questionNumber,
     required this.score,
     required this.question,
     required this.processAnswer,
-  }) : super(key: key);
+  });
 
   // Functie om een rij met antwoordknoppen te maken
   Widget makeRowWithAnswerButtons(int answerNumber) {
@@ -77,14 +77,14 @@ class Question extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: EdgeInsets.only(left: Settings.margin),
+              padding: const EdgeInsets.only(left: Settings.margin),
               child: Text(
                 "Vraag ${questionNumber + 1} van ${Settings.questions.length}",
                 style: theme.textTheme.headlineSmall,
               ),
             ),
             Container(
-              padding: EdgeInsets.only(right: Settings.margin),
+              padding: const EdgeInsets.only(right: Settings.margin),
               child: Text(
                 "Score: $score",
                 style: theme.textTheme.headlineSmall,
@@ -106,7 +106,7 @@ class Question extends StatelessWidget {
         ),
         // Weergeven van de vraagtekst
         Padding(
-          padding: EdgeInsets.all(Settings.margin),
+          padding: const EdgeInsets.all(Settings.margin),
           child: Text(
             Settings.questions[questionNumber]
                 ["question"], // Tekst van de vraag

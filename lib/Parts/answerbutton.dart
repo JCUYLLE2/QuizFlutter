@@ -7,11 +7,11 @@ class AnswerButton extends StatefulWidget {
   final Function processAnswer;
 
   const AnswerButton({
-    Key? key,
+    super.key,
     required this.isCorrect,
     required this.answer,
     required this.processAnswer,
-  }) : super(key: key);
+  });
 
   @override
   State<AnswerButton> createState() => _MyAnswerButtonState();
@@ -30,7 +30,7 @@ class _MyAnswerButtonState extends State<AnswerButton>
 
     _animController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
 
     _fillColorAnimation = ColorTween(begin: Colors.blue, end: Colors.green)
@@ -104,7 +104,7 @@ class _MyAnswerButtonState extends State<AnswerButton>
                 child: Opacity(
                   opacity: _fadeAnimation.value!,
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minHeight: settings.buttonWidth * 0.5,
                       minWidth: settings.buttonWidth,
                       maxWidth: settings.buttonWidth,

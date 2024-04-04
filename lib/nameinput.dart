@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quizz/quiz.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class NameInput extends StatefulWidget {
   final Function(String) onNameEntered;
 
-  const NameInput({Key? key, required this.onNameEntered}) : super(key: key);
+  const NameInput({super.key, required this.onNameEntered});
 
   @override
   _NameInputState createState() => _NameInputState();
@@ -16,6 +14,10 @@ class _NameInputState extends State<NameInput> {
 
   Future<void> _saveNameAndNavigate(BuildContext context) async {
     final String name = _nameController.text;
+
+    // Voeg een print-verklaring toe om te controleren of de functie wordt aangeroepen
+    print('Name saved: $name');
+
     widget.onNameEntered(name); // Naam doorgeven aan ouderwidget
   }
 
@@ -23,23 +25,23 @@ class _NameInputState extends State<NameInput> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Enter Your Name'),
+        title: const Text('Enter Your Name'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: _nameController,
-              decoration: InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(labelText: 'Name'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 _saveNameAndNavigate(context);
               },
-              child: Text('Continue'),
+              child: const Text('Continue'),
             ),
           ],
         ),

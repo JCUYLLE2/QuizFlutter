@@ -4,7 +4,7 @@ import 'package:flutter_quizz/Parts/result.dart';
 import 'package:flutter_quizz/nameinput.dart';
 
 class Quiz extends StatefulWidget {
-  const Quiz({Key? key, required this.onStartQuiz}) : super(key: key);
+  const Quiz({super.key, required this.onStartQuiz});
 
   final VoidCallback onStartQuiz;
 
