@@ -1,10 +1,14 @@
+// quiz.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quizz/Parts/question.dart';
 import 'package:flutter_quizz/Parts/result.dart';
+import 'package:flutter_quizz/leaderboard.dart';
 import 'package:flutter_quizz/nameinput.dart';
+import 'package:provider/provider.dart';
 
 class Quiz extends StatefulWidget {
-  const Quiz({super.key, required this.onStartQuiz});
+  const Quiz({Key? key, required this.onStartQuiz});
 
   final VoidCallback onStartQuiz;
 
@@ -52,6 +56,10 @@ class _MyQuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
     }
 
     if (questionNumber == questions.length) {
+      // Voeg de score toe aan het Leaderboard wanneer de quiz is voltooid
+      final leaderboard = Provider.of<Leaderboard>(context, listen: false);
+      leaderboard.addEntry(userName, score);
+
       return Result(score); // Pass the score to the result screen
     } else {
       return Question(

@@ -2,31 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quizz/nameinput.dart';
 import 'package:flutter_quizz/quiz.dart';
 import 'package:flutter_quizz/welcome.dart';
+import 'package:provider/provider.dart';
 import 'info.dart';
+import 'player_notifier.dart';
+import 'leaderboard.dart'; // Importeer de Leaderboard-klasse
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Kwistet!',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PlayerNotifier()),
+        ChangeNotifierProvider(
+            create: (_) => Leaderboard()), // Voeg Leaderboard-provider toe
+      ],
+      child: MaterialApp(
+        title: 'Kwistet!',
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const QuizApp(),
+          '/quiz': (context) => Quiz(
+                onStartQuiz: () {},
+              ),
+          '/info': (context) => const Info(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const QuizApp(),
-        '/quiz': (context) => Quiz(
-              onStartQuiz: () {},
-            ),
-        '/info': (context) => const Info(),
-      },
     );
   }
 }
