@@ -22,17 +22,15 @@ class Info extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Uw score: ${player.score}',
-                style: TextStyle(fontSize: 24),
+              // Voeg de Image widget toe met het GIF-bestand
+              Image.asset(
+                '/images/wingif.gif',
+                width: 200, // Pas de breedte van de GIF aan zoals gewenst
+                height: 200, // Pas de hoogte van de GIF aan zoals gewenst
               ),
               SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/');
-                },
-                child: Text('Terug naar de welkomstpagina'),
-              ),
+              // Verwijder de ElevatedButton widget
+              // of vervang deze door een andere widget indien nodig
               SizedBox(height: 20),
               Text(
                 'Leaderboard:',

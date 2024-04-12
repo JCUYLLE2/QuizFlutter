@@ -8,7 +8,15 @@ import 'player_notifier.dart';
 import 'leaderboard.dart'; // Importeer de Leaderboard-klasse
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PlayerNotifier()),
+        // Voeg andere providers toe indien nodig
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -6,6 +6,7 @@ import 'package:flutter_quizz/Parts/result.dart';
 import 'package:flutter_quizz/leaderboard.dart';
 import 'package:flutter_quizz/nameinput.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_quizz/player_notifier.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({Key? key, required this.onStartQuiz});

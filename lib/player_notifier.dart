@@ -13,16 +13,10 @@ class PlayerNotifier extends ChangeNotifier {
 
   void updateScore(int newScore) {
     _player.score = newScore;
-    notifyListeners();
+    notifyListeners(); // Belangrijk: dit zorgt ervoor dat alle luisteraars worden geïnformeerd over de update
   }
 }
 
 class Player {
-  int _score = 0; // De score van de speler is privé
-
-  int get score => _score; // Getter om de score op te halen
-
-  set score(int newScore) {
-    _score = newScore; // Setter om de score bij te werken
-  }
+  int score = 0;
 }

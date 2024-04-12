@@ -21,7 +21,7 @@ class Welcome extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            'Ga snel naar Quiz om erin te vliegen! Wie weet ben jij de slimste speler ooit',
+            'Ga snel naar Quiz om erin te vliegen! Wie weet ben jij de slimste speler ooit!!',
             style: TextStyle(
               fontSize: 18,
               color: Colors.white,
