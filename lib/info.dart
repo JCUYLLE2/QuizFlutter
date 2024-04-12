@@ -10,8 +10,7 @@ class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final player = Provider.of<PlayerNotifier>(context).player;
-    final leaderboard =
-        Provider.of<Leaderboard>(context); // Haal het leaderboard op
+    final leaderboard = Provider.of<Leaderboard>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -30,13 +29,11 @@ class Info extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Navigeer terug naar de welkomstpagina en vervang de huidige pagina
                   Navigator.pushReplacementNamed(context, '/');
                 },
                 child: Text('Terug naar de welkomstpagina'),
               ),
               SizedBox(height: 20),
-              // Voeg een gedeelte toe voor het weergeven van het leaderboard
               Text(
                 'Leaderboard:',
                 style: TextStyle(fontSize: 24),
@@ -46,8 +43,9 @@ class Info extends StatelessWidget {
                 itemCount: leaderboard.entries.length,
                 itemBuilder: (context, index) {
                   final entry = leaderboard.entries[index];
+                  final rank = index + 1;
                   return ListTile(
-                    title: Text('${entry.playerName}: ${entry.score}'),
+                    title: Text('$rank. ${entry.playerName}: ${entry.score}'),
                   );
                 },
               ),

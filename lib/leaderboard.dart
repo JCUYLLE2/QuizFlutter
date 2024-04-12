@@ -16,7 +16,7 @@ class Leaderboard extends ChangeNotifier {
   void addEntry(String playerName, int score) {
     _entries.add(LeaderboardEntry(playerName, score));
     _entries.sort(
-        (a, b) => b.score.compareTo(a.score)); // Sorteer op score (aflopend)
+        (a, b) => a.score.compareTo(b.score)); // Sorteer op score (oplopend)
     notifyListeners();
   }
 }

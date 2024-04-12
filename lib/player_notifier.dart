@@ -18,5 +18,11 @@ class PlayerNotifier extends ChangeNotifier {
 }
 
 class Player {
-  int score = 0;
+  int _score = 0; // De score van de speler is privé
+
+  int get score => _score; // Getter om de score op te halen
+
+  set score(int newScore) {
+    _score = newScore; // Setter om de score bij te werken
+  }
 }
